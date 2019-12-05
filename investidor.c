@@ -41,7 +41,7 @@ void printAcao(Acao *ac, int i){
 
 
 // Uma sugestão de modelo de função de compra
-// Recebe o vetor de ações
+// Recebe o vetor de ações e a struct do investidor
 int compra(Acao* acoes, Investidor* inv){
     int choice = 0, i = 0;
     static int cont =0;
