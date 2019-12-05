@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "investidor.h"
-
 ///MAIN
 int main(){
     Investidor *inv;
@@ -27,7 +26,7 @@ int main(){
         case 4: arquivo = fopen("investimento4.txt", "r"); break;
         case 5: arquivo = fopen("investimento5.txt", "r"); break;
     }
-    // Eu limpo o ENTER que fica depois que a pessoa digita o nivel
+    // Eu limpo o ENTER que fica depois que a pessoa digita o nvel
     setbuf(stdin, NULL);
 
     fscanf(arquivo, "%d", &qtdAcoes);
@@ -43,10 +42,29 @@ int main(){
     for(i=0; i<qtdAcoes; i++){
         fscanf(arquivo, "%d", &(acoes[i].preco));
     }
-    for( i=0; i<qtdAcoes; i++){
+      for( i=0; i<qtdAcoes; i++){
         printAcao((acoes+i), i);
         printf("\n");
     }
+
+    // Cadastra o novo jogador
+    inv = (Investidor*) novoInvestidor(dinheiro);
+    if (inv == NULL) printf("Erro na alocação de novoInvestidor");
+    // acao servirá para guardar o lucro e o preco das ações que forem compradas
+    for (i = 0; i <100; i++){
+        inv->investimentos[i].acao = malloc(sizeof(Acao));
+    }
+    inv->dinheiro = dinheiro;
+
+    while (inv->dinheiro > 0 ) {
+        int choice = 0;
+        choice = compra(acoes, inv);
+        if (choice == -1) break;
+    }
+
+
+
+
     /*
         criar a afuncao investir
         fazer menu
