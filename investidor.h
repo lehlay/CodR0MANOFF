@@ -1,5 +1,5 @@
-#ifndef INVESTIDOR_H_INCLUDED
-#define INVESTIDOR_H_INCLUDED
+#ifndef _INVESTIDOR_
+#define _INVESTIDOR_
 
 
 typedef struct acao
