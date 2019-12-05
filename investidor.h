@@ -34,4 +34,4 @@ int destroyInvestidor(Investidor *inv);
 
 void printAcao(Acao *ac, int i);
 
-#endif // INVESTIDOR_H_INCLUDED
+#endif 
