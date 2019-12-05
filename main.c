@@ -27,7 +27,7 @@ int main(){
         case 4: arquivo = fopen("investimento4.txt", "r"); break;
         case 5: arquivo = fopen("investimento5.txt", "r"); break;
     }
-    // Eu limpo o ENTER que fica depois que a pessoa digita o nvel
+    // Eu limpo o ENTER que fica depois que a pessoa digita o nivel
     setbuf(stdin, NULL);
 
     fscanf(arquivo, "%d", &qtdAcoes);
