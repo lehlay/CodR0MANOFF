@@ -1,8 +1,6 @@
 #ifndef _INVESTIDOR_
 #define _INVESTIDOR_
 
-
-
 typedef struct acao
 {
     int lucro;
@@ -34,8 +32,6 @@ Investidor *novoInvestidor(int dinheiro);
 int destroyInvestidor(Investidor *inv);
 
 void printAcao(Acao *ac, int i);
+int compra(Acao*, Investidor*, int*);
 
-// Função para a compra de ações
-int compra(Acao*, Investidor*);
-
-#endif 
+#endif // INVESTIDOR_H_INCLUDED
