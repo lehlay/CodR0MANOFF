@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "investidor.h"
+
 ///MAIN
 int main(){
     Investidor *inv;
@@ -14,7 +15,7 @@ int main(){
     FILE  *arquivo;
     double dinheiro;
     char test[100];
-    int aux;
+    int aux, cont = 0;
 
     // Criei um comando de seleção do nível
     printf("Informe o nível\n");
@@ -58,17 +59,26 @@ int main(){
 
     while (inv->dinheiro > 0 ) {
         int choice = 0;
-        choice = compra(acoes, inv);
+        choice = compra(acoes, inv, &cont);
         if (choice == -1) break;
     }
 
+    printf("\n\nResumo dos Investimentos de %s\n", inv->name);
 
-
-
+     for (i = 0; i <cont; i++){
+        printf("Custo:%.2lf Lucro %.2lf\n",inv->investimentos[i].d_investido,inv->investimentos[i].lucro);
+    }
+    printf("\nDinheiro Final:%.2lf\n", inv->dinheiro);
+    printf("Lucro Final:%.2lf\n", inv->totalLucro);
+    printf("Vezes investidas:%d\n", inv->qtdInvestimentos);
+   
+   
     /*
         criar a afuncao investir
         fazer menu
     */
+
+
 
     system("pause");
 
