@@ -15,6 +15,7 @@ int main(){
     FILE  *arquivo;
     double dinheiro;
     char test[100];
+    // Criei um contador que será usado na função de compra, e para imprimir as aquisições na tela
     int aux, cont = 0;
 
     // Criei um comando de seleção do nível
@@ -27,7 +28,7 @@ int main(){
         case 4: arquivo = fopen("investimento4.txt", "r"); break;
         case 5: arquivo = fopen("investimento5.txt", "r"); break;
     }
-    // Eu limpo o ENTER que fica depois que a pessoa digita o nvel
+    // Eu limpo o ENTER que fica depois que a pessoa digita o nivel
     setbuf(stdin, NULL);
 
     fscanf(arquivo, "%d", &qtdAcoes);
@@ -51,12 +52,15 @@ int main(){
     // Cadastra o novo jogador
     inv = (Investidor*) novoInvestidor(dinheiro);
     if (inv == NULL) printf("Erro na alocação de novoInvestidor");
-    // acao servirá para guardar o lucro e o preco das ações que forem compradas
+    
+    // acao servirá para guardar o lucro e o preco das ações para cada investimento
     for (i = 0; i <100; i++){
         inv->investimentos[i].acao = malloc(sizeof(Acao));
     }
+    // Atualiza o dinehiro na struct do investidor
     inv->dinheiro = dinheiro;
 
+    // Enquanto ele tiver dinheiro ou não optar por sair, o jogador pode comprar mais ações
     while (inv->dinheiro > 0 ) {
         int choice = 0;
         choice = compra(acoes, inv, &cont);
