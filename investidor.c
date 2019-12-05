@@ -60,7 +60,6 @@ int compra(Acao* acoes, Investidor* inv){
     custo_da_rodada = (double) ((porcentagem/100)* acoes[choice].preco);
     lucroAtual = inv->totalLucro + lucro_da_rodada;
     dinheiro = dinheiro - custo_da_rodada;
-    printf("\nTESTE\n");
 
     // Atualiza na struct inv
     inv->dinheiro = dinheiro;
@@ -77,7 +76,7 @@ int compra(Acao* acoes, Investidor* inv){
     printf("Vezes investidas:%d\n", inv->qtdInvestimentos);
     printf("\nCarteira de Ações:\n");
 
-    //Para exibir o valor de cada compra eh preciso converter os tipos nas structs que estão incompatíveis
+    //Exibe as compras realizadas
     for (i = 0; i < cont; i ++){
         printf("Custo:%lf Lucro %lf\n",inv->investimentos[i].d_investido,inv->investimentos[i].lucro);
     }
